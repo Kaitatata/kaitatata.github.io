@@ -1,8 +1,152 @@
-<html>
- <body>
-<h1> Привет!</h1>
-<p>хахахаха</p>
-<h1>что это?</h1>
-<p>просто учусь делать тут сайты)<p>
- </body>
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaita</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        /* Анимированный фон для второй страницы */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        .page {
+            display: none;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .active {
+            display: block;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        
+        .nav {
+            margin-top: 20px;
+        }
+        
+        button {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .telegram-link {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: #0088cc;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .telegram-link:hover {
+            background-color: #006699;
+        }
+        
+        .info {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Главная страница -->
+    <div id="page1" class="page active">
+        <h1>Kaita</h1>
+        <img src="https://i.postimg.cc/X7DH8zHh/1-20240817164124.png" alt="Kaita">
+        <div class="nav">
+            <button onclick="showPage(2)">Обо мне</button>
+        </div>
+    </div>
+    
+    <!-- Страница "Обо мне" -->
+    <div id="page2" class="page">
+        <div class="animated-bg"></div>
+        <div class="info">
+            <h1>Информация обо мне</h1>
+            <p><strong>Имя:</strong> Евгений</p>
+            <p><strong>Дата рождения:</strong> 04.09.2009</p>
+            <p><strong>Ник:</strong> Kaita</p>
+            <a href="https://t.me/kaitatatab" class="telegram-link" target="_blank">Мой Telegram</a>
+        </div>
+        <div class="nav">
+            <button onclick="showPage(1)">На главную</button>
+        </div>
+    </div>
+    
+    <script>
+        function showPage(pageNumber) {
+            // Скрыть все страницы
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Показать выбранную страницу
+            document.getElementById('page' + pageNumber).classList.add('active');
+        }
+    </script>
+</body>
 </html>
